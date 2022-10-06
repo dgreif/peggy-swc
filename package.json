@@ -1,0 +1,28 @@
+{
+  "name": "peggy-swc",
+  "version": "0.0.0",
+  "description": "Repro for peggy + swc compression bug",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run small && npm run medium && npm run large && npm run large-unused-off",
+    "small": "peggy small.peggy && time swc small.js -d output",
+    "medium": "peggy medium.peggy && time swc medium.js -d output",
+    "large": "peggy large.peggy && time swc large.js -d output",
+    "large-unused-off": "peggy large.peggy && time swc large.js -d output -C jsc.minify.compress.unused=false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgreif/peggy-swc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgreif/peggy-swc/issues"
+  },
+  "homepage": "https://github.com/dgreif/peggy-swc#readme",
+  "dependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.4",
+    "peggy": "^2.0.1"
+  }
+}
